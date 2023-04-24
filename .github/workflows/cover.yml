@@ -37,5 +37,4 @@ jobs:
           def download_from_url(url):
                ydl.download([url])
           with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-               url = "https://www.youtube.com/watch?v=cQGfLDnmWS8&pp=ygULYXNtYWxpYnJhc2k%3D" #@param {type:"string"}
-               download_from_url(url)"
+               download_from_url('https://www.youtube.com/watch?v=cQGfLDnmWS8')"
