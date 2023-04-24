@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
       - name: Intinya Lagi Nginstall App Nya
         run: |
           python -m pip install -U pip wheel
@@ -25,16 +30,17 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Getting Music Base
         run: |
-         from __future__ import unicode_literals
-         import yt_dlp
-         import ffmpeg
-         import sys
-
-         ydl_opts = {
-             format': 'bestaudio/best','postprocessors': [{'key': 'FFmpegExtractAudio','preferredcodec': 'wav',}],"outtmpl": 'youtubeaudio/audio', 
-             }
-         def download_from_url(url):
-             ydl.download([url])
-         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-             url = "https://www.youtube.com/watch?v=cQGfLDnmWS8&pp=ygULYXNtYWxpYnJhc2k%3D" #@param {type:"string"}
-             download_from_url(url)
+          python -c "from __future__ import unicode_literals; import yt_dlp; import ffmpeg; import sys;
+          ydl_opts = {
+            'format': 'bestaudio/best',
+            'postprocessors': [{
+               'key': 'FFmpegExtractAudio',
+               'preferredcodec': 'wav', 
+            }],
+          "outtmpl": 'youtubeaudio/audio',
+          }
+          def download_from_url(url):
+               ydl.download([url])
+          with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+               url = "https://www.youtube.com/watch?v=cQGfLDnmWS8&pp=ygULYXNtYWxpYnJhc2k%3D" #@param {type:"string"}
+               download_from_url(url)"
