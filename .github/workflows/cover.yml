@@ -12,7 +12,7 @@ jobs:
       - name: Installing Bahan Bahan
         run: |
           ls ${{ github.workspace }}
-       - name: Installing Bahan Bahan
+       - name: Getting Model
         run: |
           git clone https://huggingface.co/megaaziib/hololivemix-so-vits-svc-4.0
           ls ${{ github.workspace }}
