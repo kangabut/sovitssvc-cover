@@ -1,6 +1,10 @@
-name: Cover Tod
-run-name: ${{ github.actor }} Kyaaa
-on: [push]
+name: Cover
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -10,6 +14,9 @@ jobs:
           python -m pip install -U pip wheel
           pip install -U ipython
           pip install -U so-vits-svc-fork
+       - name: Installing Bahan Bahan
+        run: |
+          git clone https://huggingface.co/megaaziib/hololivemix-so-vits-svc-4.0
+          ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      
       
