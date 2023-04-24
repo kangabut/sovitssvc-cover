@@ -9,10 +9,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Installing Bahan Bahan
-        run: |
-          ls ${{ github.workspace }}
-       - name: Getting Model
+      - name: Getting Model
         run: |
           git clone https://huggingface.co/megaaziib/hololivemix-so-vits-svc-4.0
           ls ${{ github.workspace }}
